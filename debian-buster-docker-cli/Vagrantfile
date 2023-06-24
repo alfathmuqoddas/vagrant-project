@@ -1,0 +1,17 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "debian/buster64"
+  config.vm.synced_folder ".", "/vagrant_data", disabled: true
+  config.vm.provider "virtualbox" do |v|
+    v.name = "debian-buster-docker-cli"
+    v.cpus = 6
+    v.memory = 4096
+    #v.gui = true
+  end
+  config.vm.provision "docker" do |d|
+    d.pull_images "hello-world"
+    d.pull_images "portainer/portainer-ce:alpine"
+  end
+end
