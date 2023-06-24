@@ -7,7 +7,7 @@ echo "install dependecies"
 apt install libx11-dev libxft-dev libxinerama-dev build-essential -y > /dev/null
 
 echo "install xorg and display manager"
-apt install xserver-xorg-video-radeon xserver-xorg-core lightdm lightdm-gtk-greeter pcmanfm firefox-esr git -y > /dev/null
+apt install xserver-xorg-video-radeon xserver-xorg-core lightdm lightdm-gtk-greeter pcmanfm firefox-esr git lxappearance xarchiver pulseaudio pavucontrol -y > /dev/null
 
 echo "enable lightdm"
 systemctl enable lightdm > /dev/null
@@ -25,7 +25,7 @@ echo "install numix icon theme"
 apt install numix-icon-theme -y > /dev/null
 
 echo "installing dwm"
-mkdir .dwm && mkdir /home/vagrant/.dwm && cd /home/vagrant/alfath-dwm && make clean install && cp autostart.sh ../.dwm && cp autostart.sh /root/.dwm && cp dwm.desktop /usr/share/xsessions > /dev/null
+mkdir -p .dwm && mkdir -p /home/vagrant/.dwm && cd /home/vagrant/alfath-dwm && make clean install && cp autostart.sh ../.dwm && cp autostart.sh /root/.dwm && cp dwm.desktop /usr/share/xsessions > /dev/null
 
 echo "installing st1"
 cd /home/vagrant/alfath-st1 && make clean install > /dev/null
